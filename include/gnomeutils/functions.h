@@ -1,10 +1,8 @@
 #pragma once
 
-#include <cstdint>
-
 namespace GnomeUtils
 {
     void message(const char* title, const char* msg, ...);
-    void protect(void* address, uintptr_t protection);
-    void* unprotect(void* address);
+    void Protect(void* address, unsigned long protection);
+    unsigned long UnProtect(void* address);
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "gnomeutils/protectedmem.h"
+
 #if defined(_WIN32)
 #include <Windows.h>
 #elif defined(__unix__)
@@ -12,7 +14,7 @@ namespace GnomeUtils
     {
     public:
         SharedObject(const char* modulePath);
-        void* GetProcAddress(const char* symbolName);
+        ProtectedMemory GetProcAddress(const char* symbolName);
 #if defined(__unix__)
         void Close();
 #endif

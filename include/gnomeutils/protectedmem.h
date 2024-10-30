@@ -11,15 +11,16 @@ namespace GnomeUtils
     public:
         ProtectedMemory(void* data);
 
-        void protect();
-        void unprotect();
+        void Protect();
+        void UnProtect();
 
-        void* getCopy();
-        void set(void* value);
+        void* GetCopy();
+        void* Get();
+        void Set(void* value);
     private:
         void* mData;
     #ifdef _WIN32
-        void* mProtection;
+        unsigned long mProtection;
     #endif
     };
 }
