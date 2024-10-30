@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "gnomeutils/protectedmem.h"
+#include "gnomeutils/hooks.h"
 
 namespace GnomeUtils
 {
@@ -18,12 +18,7 @@ namespace GnomeUtils
             return reinterpret_cast<T*>(mTable[index]);
         }
 
-        template <typename T>
-        void setFunction(uint16_t index, T* funcPtr)
-        {
-            ProtectedMemory mem(&mTable[index]);
-            mem.set(reinterpret_cast<void*>(funcPtr));
-        }
+        Hook createHook(uint16_t index, void* payload);
         
         void* getObject();
     private:

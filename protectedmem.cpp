@@ -8,35 +8,45 @@ namespace GnomeUtils
         this->mData = data;
     }
 
-    void* ProtectedMemory::getCopy()
+    void* ProtectedMemory::GetCopy()
     {
         void* copy;
         memcpy(copy, this->mData, sizeof(void*));
         return copy;
     }
 
-    void ProtectedMemory::unprotect()
+    void ProtectedMemory::UnProtect()
     {
-        auto val = GnomeUtils::unprotect(&mData);
+        auto val = GnomeUtils::UnProtect(&mData);
 
         #if defined(_WIN32)
-        this->mProtection = val;
+        this->mProtection = (unsigned long)val;
         #endif
     }
 
-    void ProtectedMemory::protect()
+    void ProtectedMemory::Protect()
     {
-        #if defined(_WIN32)
-        GnomeUtils::protect(&mData, reinterpret_cast<uint64_t>(this->mProtection));
-        #else
-        GnomeUtils::protect(&mData, nullptr);
-        #endif
+        GnomeUtils::Protect(
+            &mData, 
+#if defined(_WIN32)
+            this->mProtection
+#else
+            nullptr
+#endif
+        );
+
+        
     }
 
-    void ProtectedMemory::set(void* data)
+    void ProtectedMemory::Set(void* data)
     {
-        unprotect();
+        UnProtect();
         *(void**)this->mData = data;
-        protect();
-    } 
+        Protect();
+    }
+
+    void* ProtectedMemory::Get()
+    {
+        return this->mData;
+    }
 }

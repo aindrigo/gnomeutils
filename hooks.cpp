@@ -3,14 +3,12 @@
 
 namespace GnomeUtils
 {
-    void Hook::Init(void* source, void* payload)
+    Hook::Hook(void* source, void* payload) : mProt(&source), mSource(mProt.GetCopy()), mPayload(payload)
+    {}
+
+    void Hook::Init()
     {
-        this->mProt = new ProtectedMemory(&source);
-        this->mSource = mProt.getCopy();
-
-        this->mProt.set(payload);
-
-        this->mPayload = payload;
+        this->mProt.Set(mPayload);
     }
 
     void* Hook::GetSource()

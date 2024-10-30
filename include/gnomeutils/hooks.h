@@ -7,9 +7,9 @@ namespace GnomeUtils
     class Hook
     {
     public:
-        Hook();
+        Hook(void* source, void* payload);
 
-        void Init(void* source, void* payload); // if returnSourceValue is on then the value of source is returned and not payload
+        void Init(); // if returnSourceValue is on then the value of source is returned and not payload
         void* GetSource();
     private:
         ProtectedMemory mProt;

@@ -1,3 +1,4 @@
+#include "include/gnomeutils/protectedmem.h"
 #include <gnomeutils/sharedobject.h>
 #include <stdexcept>
 
@@ -18,7 +19,7 @@ namespace GnomeUtils
         }
     }
 
-    void* SharedObject::GetProcAddress(const char* symbolName)
+    ProtectedMemory SharedObject::GetProcAddress(const char* symbolName)
     {
 #if defined(_WIN32)
         void* proc = reinterpret_cast<void*>(::GetProcAddress(this->mHandle, symbolName));
@@ -32,7 +33,7 @@ namespace GnomeUtils
             throw std::runtime_error(msg);
         }
 
-        return proc;
+        return new ProtectedMemory(proc);
     }
 
 #if defined(__unix__)

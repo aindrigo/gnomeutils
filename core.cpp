@@ -1,0 +1,6 @@
+#include "events.cpp"
+#include "functions.cpp"
+#include "hooks.cpp"
+#include "protectedmem.cpp"
+#include "sharedobject.cpp"
+#include "vtable.cpp"
