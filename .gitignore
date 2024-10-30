@@ -1,0 +1,6 @@
+/build
+/.cache
+*.dll
+*.exe
+*.a
+CMakeUserPresets.json

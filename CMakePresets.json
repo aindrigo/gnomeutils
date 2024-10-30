@@ -1,0 +1,19 @@
+{
+    "version": 2,
+  
+    "configurePresets": [
+      {
+        "name": "windows-base",
+        "binaryDir": "build",
+        "generator": "MinGW Makefiles",
+        "cacheVariables": {
+          "CMAKE_CXX_COMPILER": "g++"
+        }
+      },
+
+      {
+        "name": "x64-debug",
+        "inherits": "windows-base"
+      }
+    ]
+  }
