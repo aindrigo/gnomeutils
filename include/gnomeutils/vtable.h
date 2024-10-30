@@ -2,12 +2,7 @@
 
 #include <cstdint>
 
-#ifdef _WIN32
-#include <Windows.h>
-#elif __unix__
-#include <unistd.h>
-typedef unsigned long long DWORD;
-#endif
+#include "gnomeutils/protectedmem.h"
 
 namespace GnomeUtils
 {
@@ -26,21 +21,13 @@ namespace GnomeUtils
         template <typename T>
         void setFunction(uint16_t index, T* funcPtr)
         {
-            unprotect(index);
-            mTable[index] = reinterpret_cast<uintptr_t>(funcPtr);
-            protect(index);
+            ProtectedMemory mem(&mTable[index]);
+            mem.set(reinterpret_cast<void*>(funcPtr));
         }
-
         
         void* getObject();
     private:
-        void protect(uint16_t index);
-        void unprotect(uint16_t index);
-
         void** mObject;
         uintptr_t* mTable;
-    #ifdef _WIN32
-        DWORD mProtection;
-    #endif
     };
 }
