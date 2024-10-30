@@ -19,7 +19,7 @@ namespace GnomeUtils
     private:
         void* mData;
     #ifdef _WIN32
-        DWORD mProtection;
+        void* mProtection;
     #endif
     };
 }

@@ -17,7 +17,7 @@ namespace GnomeUtils
         printf("%s: %s", title, msg);
     }
 
-    void protect(void* address, uintptr_t protection) // protection ignored on unix
+    void protect(void* address, uint64_t protection) // protection ignored on unix
     {
     #ifdef _WIN32
         VirtualProtect(address, sizeof(void*), protection, nullptr);

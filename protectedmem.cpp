@@ -20,14 +20,14 @@ namespace GnomeUtils
         auto val = GnomeUtils::unprotect(&mData);
 
         #if defined(_WIN32)
-        this->mProtection = reinterpret_cast<DWORD>(val);
+        this->mProtection = val;
         #endif
     }
 
     void ProtectedMemory::protect()
     {
         #if defined(_WIN32)
-        GnomeUtils::protect(&mData, this->mProtection);
+        GnomeUtils::protect(&mData, reinterpret_cast<uint64_t>(this->mProtection));
         #else
         GnomeUtils::protect(&mData, nullptr);
         #endif
