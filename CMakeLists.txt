@@ -6,6 +6,6 @@ set (GNOMEUTILS_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE FILEPATH
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-add_library (GnomeUtils STATIC vtable.cpp sharedobject.cpp)
+add_library (GnomeUtils STATIC vtable.cpp sharedobject.cpp functions.cpp)
 
 target_include_directories (GnomeUtils PRIVATE $CACHE{GNOMEUTILS_INCLUDE_DIR})
