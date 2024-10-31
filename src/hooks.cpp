@@ -1,5 +1,5 @@
 #include "gnomeutils/hooks.h"
-#include "include/gnomeutils/protectedmem.h"
+#include "gnomeutils/protectedmem.h"
 
 namespace GnomeUtils
 {

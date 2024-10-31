@@ -22,7 +22,7 @@ namespace GnomeUtils
 #ifdef _WIN32
         VirtualProtect(address, sizeof(void*), protection, &protection);
 #elif __unix__
-        mprotect(p, sizeof(void*), PROT_READ | PROT_WRITE);
+        mprotect(address, sizeof(void*), PROT_READ | PROT_WRITE);
 #endif
     }
 
@@ -33,7 +33,7 @@ namespace GnomeUtils
         VirtualProtect(address, sizeof(void*), PAGE_EXECUTE_READWRITE, prot);
         return *prot;
 #elif __unix__
-        return mprotect(p, sizeof(void*), PROT_READ | PROT_WRITE | PROT_EXEC);
+        return mprotect(address, sizeof(void*), PROT_READ | PROT_WRITE | PROT_EXEC);
 #endif
     }
 }

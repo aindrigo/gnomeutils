@@ -7,5 +7,7 @@ My utility library, intended for cross-platform usage.
 * g++
 * gcc
 * make/mingw32-make
+* conan(.io)
 
-Run `cmake --preset=x64-(release/debug)-(windows/linux)` to build. Output file is `build/libgnomeutils.*`
+First, from the main directory run `conan install . -sbuild_Type=(Debug/Release)`.
+After that, run `conan build .` to build. Output files are in "build/(Debug/Release)"

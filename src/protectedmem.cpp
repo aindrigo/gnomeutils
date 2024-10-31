@@ -1,5 +1,6 @@
 #include "gnomeutils/protectedmem.h"
 #include "gnomeutils/functions.h"
+#include <cstring>
 
 namespace GnomeUtils
 {
@@ -31,7 +32,7 @@ namespace GnomeUtils
 #if defined(_WIN32)
             this->mProtection
 #else
-            nullptr
+            0
 #endif
         );
     }

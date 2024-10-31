@@ -1,6 +1,7 @@
-#include "include/gnomeutils/protectedmem.h"
-#include <gnomeutils/sharedobject.h>
+#include "gnomeutils/protectedmem.h"
+#include "gnomeutils/sharedobject.h"
 #include <stdexcept>
+#include <string>
 
 namespace GnomeUtils
 {
@@ -13,8 +14,7 @@ namespace GnomeUtils
 #endif
         if (!this->mHandle)
         {
-            char msg[21] = "Invalid module path ";
-            strcat_s(msg, modulePath);
+            std::string msg = "Invalid module path " + std::string(modulePath);
             throw std::runtime_error(msg);
         }
     }
@@ -28,8 +28,7 @@ namespace GnomeUtils
 #endif
         if (!proc)
         {
-            char msg[34] = "Attempted to load invalid symbol ";
-            strcat_s(msg, symbolName);
+            std::string msg = "Attempted to load invalid symbol " + std::string(symbolName);
             throw std::runtime_error(msg);
         }
 

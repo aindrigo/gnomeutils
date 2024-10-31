@@ -1,5 +1,6 @@
 #pragma once
 
+#include "gnomeutils/color.h"
 #include "gnomeutils/events.h"
 #include "gnomeutils/functions.h"
 #include "gnomeutils/hooks.h"
