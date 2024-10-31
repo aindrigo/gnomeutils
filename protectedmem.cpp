@@ -34,8 +34,6 @@ namespace GnomeUtils
             nullptr
 #endif
         );
-
-        
     }
 
     void ProtectedMemory::Set(void* data)
