@@ -9,4 +9,4 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 add_library (gnomeutils STATIC src/core.cpp)
 
 target_link_libraries (gnomeutils PRIVATE ${GNOMEUTILS_LIBRARIES})
-target_include_directories (gnomeutils PRIVATE ${GNOMEUTILS_INCLUDE_DIR})
+target_include_directories (gnomeutils PUBLIC ${GNOMEUTILS_INCLUDE_DIR})
