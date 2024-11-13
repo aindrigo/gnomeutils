@@ -24,6 +24,7 @@ class GnomeUtilsConan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = ["gnomeutils"]
         self.cpp_info.set_property("cmake_target_name", "gnomeutils::gnomeutils")
+
     def layout(self):
         self.folders.source = "."
         self.folders.build = os.path.join("build", str(self.settings.build_type))

@@ -1,5 +1,6 @@
 # GnomeUtils
 My utility library, intended for cross-platform usage.
+(This is developed on (Arch) Linux so there may some issues on Windows)
 
 # Building
 ## Requirements
